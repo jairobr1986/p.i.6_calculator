@@ -34,14 +34,13 @@ Não há framework, pacote NPM, processo de build ou variável de ambiente.
 
 ```text
 Calculadora nova/
-├── css/
-│   ├── index.html                         # Estrutura e textos da interface
-│   ├── style.css                          # Design responsivo e temas
-│   ├── script.js                          # Regras de cálculo e interações
-│   ├── manifest.webmanifest               # Metadados de instalação PWA
-│   ├── sw.js                              # Cache offline do PWA
-│   └── icon.svg                           # Ícone do aplicativo
-│   └── Calculadora.png                    # Imagem existente no projeto
+├── index.html                              # Estrutura e textos da interface
+├── style.css                               # Design responsivo e temas
+├── script.js                               # Regras de cálculo e interações
+├── manifest.webmanifest                    # Metadados de instalação PWA
+├── sw.js                                   # Cache offline do PWA
+├── icon.svg                                # Ícone do aplicativo
+├── Calculadora.png                         # Imagem existente no projeto
 ├── docs/
 │   └── estrutura_completa_*.txt           # Registro da estrutura original
 ├── DOCUMENTACAO.md                        # Esta documentação completa
@@ -49,11 +48,10 @@ Calculadora nova/
 └── gerador_de_estrutura_analise_code.py   # Utilitário existente para gerar estrutura
 ```
 
-> A pasta chamada `css` foi mantida por compatibilidade com a estrutura original, mas nela ficam também o HTML e o JavaScript.
 
 ## 5. Como executar localmente
 
-Como este é um site estático, basta abrir [css/index.html](css/index.html) em um navegador moderno.
+Como este é um site estático, basta abrir [index.html](index.html) em um navegador moderno.
 
 Para uma experiência de desenvolvimento mais próxima de produção, use a extensão **Live Server** do VS Code ou qualquer servidor estático. Não é necessário instalar dependências.
 
@@ -132,9 +130,9 @@ O projeto não possui API, cookies próprios, login, banco de dados ou envio de 
 
 | Alteração desejada | Onde fazer |
 |---|---|
-| Rótulos, campos e textos de aviso | [css/index.html](css/index.html) |
-| Cores, espaçamento, temas e responsividade | [css/style.css](css/style.css) |
-| Fórmulas, validações e histórico | [css/script.js](css/script.js) |
+| Rótulos, campos e textos de aviso | [index.html](index.html) |
+| Cores, espaçamento, temas e responsividade | [style.css](style.css) |
+| Fórmulas, validações e histórico | [script.js](script.js) |
 | Orientações do repositório | [README.md](README.md) e este arquivo |
 
 ### Cuidados antes de alterar regras financeiras

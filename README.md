@@ -18,7 +18,7 @@ Calculadora web mobile-first para apoiar a decisão financeira entre compra fina
 
 ## Demonstração local
 
-Abra [css/index.html](css/index.html) em um navegador moderno. Não é necessário instalar pacotes ou executar comandos.
+Abra [index.html](index.html) em um navegador moderno. Não é necessário instalar pacotes ou executar comandos.
 
 Para testar a instalação PWA, publique o projeto em HTTPS (por exemplo, na Vercel) e, no Chrome para Android, use o menu do navegador e escolha **Instalar app** ou **Adicionar à tela inicial**.
 
@@ -26,10 +26,12 @@ Para testar a instalação PWA, publique o projeto em HTTPS (por exemplo, na Ver
 
 ```text
 .
-├── css/
-│   ├── index.html       # Interface da calculadora
-│   ├── style.css        # Estilos responsivos e temas
-│   └── script.js        # Cálculos, validações e histórico
+├── index.html           # Interface da calculadora
+├── style.css            # Estilos responsivos e temas
+├── script.js            # Cálculos, validações e histórico
+├── manifest.webmanifest # Metadados de instalação PWA
+├── sw.js                # Cache offline do PWA
+├── icon.svg             # Ícone do aplicativo
 ├── DOCUMENTACAO.md      # Documentação técnica completa
 └── gerador_de_estrutura_analise_code.py
 ```
@@ -38,7 +40,7 @@ Para testar a instalação PWA, publique o projeto em HTTPS (por exemplo, na Ver
 
 1. Envie este projeto para um repositório no GitHub.
 2. Na Vercel, importe o repositório em **Add New → Project**.
-3. Defina `css` como **Root Directory**.
+3. Mantenha o **Root Directory** vazio (diretório padrão do repositório).
 4. Selecione o framework **Other** e clique em **Deploy**.
 
 ## Aviso sobre os resultados
