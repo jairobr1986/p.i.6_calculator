@@ -1,0 +1,15 @@
+{
+  "name": "Simula+ Compra ou Locação",
+  "short_name": "Simula+",
+  "description": "Comparador financeiro entre compra e locação de veículos.",
+  "lang": "pt-BR",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#0052cc",
+  "theme_color": "#0052cc",
+  "orientation": "portrait-primary",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

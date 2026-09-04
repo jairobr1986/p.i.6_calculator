@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0052cc">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="description" content="Simulador financeiro para comparar compra e locação de veículos.">
+  <title>Simula+ | Compra ou Locação</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <div><p class="eyebrow">SIMULA+</p><h1>Compra ou locação</h1></div>
+      <div class="header-actions"><button class="icon-button" id="historyButton" type="button" aria-label="Abrir histórico" title="Últimas simulações">◷</button><button class="icon-button" id="themeButton" type="button" aria-label="Alterar tema" title="Alterar tema">☼</button></div>
+    </header>
+
+    <section class="theme-picker" id="themePicker" aria-label="Escolha o tema" hidden>
+      <button type="button" data-theme-choice="brand">Padrão</button>
+      <button type="button" data-theme-choice="light">Claro</button>
+      <button type="button" data-theme-choice="dark">Escuro</button>
+    </section>
+
+    <!-- Comparação financeira entre aquisição e locação, conforme o plano de ação. -->
+    <section class="simulation-panel" id="vehiclePanel">
+      <div class="panel-heading"><h2>Compare as duas opções</h2><p>Informe as condições reais recebidas para decidir com mais clareza.</p></div>
+      <form id="vehicleForm" novalidate>
+        <div class="field-grid">
+          <div class="field field-full"><label for="nomeVeiculo">Veículo analisado</label><input id="nomeVeiculo" autocomplete="off" placeholder="Ex.: Hatch compacto 2024"></div>
+          <div class="field"><label for="valorVeiculo">Preço para compra</label><input id="valorVeiculo" inputmode="decimal" autocomplete="off" placeholder="Ex.: 50.000,00" required data-currency></div>
+          <div class="field"><label for="valorEntrada">Entrada</label><input id="valorEntrada" inputmode="decimal" autocomplete="off" placeholder="Se não houver, 0" data-currency></div>
+          <div class="field"><label for="parcelas">Prazo da análise (meses)</label><input id="parcelas" type="number" inputmode="numeric" min="1" step="1" placeholder="Ex.: 36" required></div>
+          <div class="field"><label for="taxaFinanciamento">Juros mensais do financiamento (%)</label><input id="taxaFinanciamento" inputmode="decimal" autocomplete="off" placeholder="Ex.: 1,80" required></div>
+          <div class="field field-full"><label for="custoPropriedade">Custo mensal de propriedade</label><input id="custoPropriedade" inputmode="decimal" autocomplete="off" placeholder="Seguro, IPVA proporcional e manutenção; se não houver, 0" data-currency><small>Combustível não é incluído porque pode ocorrer nas duas alternativas.</small></div>
+          <div class="field"><label for="modoAluguel">Forma de locação</label><select id="modoAluguel"><option value="mensal" selected>Mensal</option><option value="diario">Diária</option></select></div>
+          <div class="field"><label for="valorAluguel" id="aluguelLabel">Valor mensal da locação</label><input id="valorAluguel" inputmode="decimal" autocomplete="off" placeholder="Ex.: 1.900,00" required data-currency></div>
+        </div>
+        <button class="primary-button" type="submit">Comparar compra e locação</button>
+      </form>
+      <p class="form-message" id="vehicleMessage" role="alert" aria-live="polite"></p>
+      <section class="results" id="vehicleResults" aria-live="polite" hidden></section>
+    </section>
+
+    <footer class="app-footer">Simulação educativa: confirme valores, cobertura, franquias e condições diretamente com a empresa.</footer>
+  </main>
+  <dialog class="history-dialog" id="historyDialog" aria-labelledby="historyTitle">
+    <div class="dialog-header"><h2 id="historyTitle">Últimas simulações</h2><button class="icon-button" id="closeHistoryButton" type="button" aria-label="Fechar histórico">×</button></div>
+    <p class="dialog-help">Os dados ficam somente neste aparelho e são mantidos até você limpar o histórico.</p>
+    <div id="historyList" class="history-list"></div>
+    <button id="clearHistoryButton" class="secondary-button" type="button">Limpar histórico</button>
+  </dialog>
+  <script src="script.js"></script>
+  <script>
+    // Permite instalar o Simula+ e reutilizá-lo offline após a primeira visita.
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+  </script>
+</body>
+</html>
